@@ -1,6 +1,6 @@
 import "../landingPage.css";
 
-const landingPage = () => {
+const LandingPage = () => {
   return (
     <div className="landing-page">
       <header className="header">
@@ -108,4 +108,4 @@ const landingPage = () => {
   );
 }
 
-export default landingPage;
+export default LandingPage;

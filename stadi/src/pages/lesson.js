@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import './lesson.css';
+import '../lesson.css';
+import Navbar from '../components/Navbar';
 
 const audioLessons = [
   {
@@ -22,7 +23,7 @@ const audioLessons = [
   }
 ];
 
-export default function AudioLessonsPage() {
+const AudioLessonsPage = () => {
   const [currentAudio, setCurrentAudio] = useState(null);
 
   const playAudio = (audioSrc) => {
@@ -35,33 +36,38 @@ export default function AudioLessonsPage() {
   };
 
   return (
-    <div className="audio-lessons-page">
-      <header className="header">
-        <h1>Audio Lessons</h1>
-      </header>
-      <main className="main-content">
-        <p className="intro">Welcome to our audio lessons. Click on the play button next to each article to listen to the audio version.</p>
-        <div className="lesson-list">
-          {audioLessons.map((lesson) => (
-            <article key={lesson.id} className="lesson-card">
-              <h2>{lesson.title}</h2>
-              <p>{lesson.content}</p>
-              <button 
-                className="play-button" 
-                onClick={() => playAudio(lesson.audioSrc)}
-                aria-label={`Play audio for ${lesson.title}`}
-              >
-                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                </svg>
-              </button>
-            </article>
-          ))}
-        </div>
-      </main>
-      <footer className="footer">
-        <p>&copy; 2023 EduCollab. All rights reserved.</p>
-      </footer>
+    <div>
+      <Navbar />
+      <div className="audio-lessons-page">
+        <header className="header">
+          <h1>Audio Lessons</h1>
+        </header>
+        <main className="main-content">
+          <p className="intro">Welcome to our audio lessons. Click on the play button next to each article to listen to the audio version.</p>
+          <div className="lesson-list">
+            {audioLessons.map((lesson) => (
+              <article key={lesson.id} className="lesson-card">
+                <h2>{lesson.title}</h2>
+                <p>{lesson.content}</p>
+                <button 
+                  className="play-button" 
+                  onClick={() => playAudio(lesson.audioSrc)}
+                  aria-label={`Play audio for ${lesson.title}`}
+                >
+                  <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                  </svg>
+                </button>
+              </article>
+            ))}
+          </div>
+        </main>
+        <footer className="footer">
+          <p>&copy; 2023 EduCollab. All rights reserved.</p>
+        </footer>
+      </div>
     </div>
   );
 }
+
+export default AudioLessonsPage;
