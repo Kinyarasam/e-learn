@@ -11,10 +11,10 @@ const LandingPage = () => {
           <span className="sr-only">Stadi</span>
         </a>
         <nav>
-          <a href="/">Features</a>
-          <a href="/">Pricing</a>
-          <a href="/">About</a>
-          <a href="/">Contact</a>
+          <a href="/features">Features</a>
+          <a href="/pricing">Pricing</a>
+          <a href="/About">About</a>
+          <a href="/contact">Contact</a>
         </nav>
       </header>
       <main>
@@ -34,8 +34,8 @@ const LandingPage = () => {
             <div className="feature-grid">
               {[
                 { icon: '🎥', title: 'Video Lessons', description: 'Create and share engaging video content with your peers.' },
-                { icon: '🎙️', title: 'Audio Podcasts', description: 'Record and distribute educational podcasts on various topics.' },
-                { icon: '👥', title: 'Collaborative Projects', description: 'Work together on assignments and research projects.' }
+                { icon: '🎙️', title: 'Audio Lessons', description: 'Record and distribute educational podcasts on various topics.' },
+                { icon: '👥', title: 'Article Lessons', description: 'Work together on assignments and research projects.' }
               ].map((feature, index) => (
                 <div key={index} className="feature-card">
                   <div className="feature-icon">{feature.icon}</div>

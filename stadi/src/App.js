@@ -5,6 +5,7 @@ import Register from "./components/Register";
 // import Navbar from "./components/Navbar";
 import LandingPage from "./pages/landingPage";
 import AudioLessonsPage from "./pages/lesson";
+import FeaturesPage from "./pages/featuresPage";
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/lessons" element={<AudioLessonsPage />} />
+        <Route path="/features" element={<FeaturesPage />} />
         <Route path="/" element={<LandingPage />} />
       </Routes>
     </Router>
