@@ -21,10 +21,29 @@ const Navbar = () => {
         </div>
 
         <ul className={menuOpen ? "nav-menu active" : "nav-menu"}>
-          <li className="nav-item">
-            <a href="/courses" className="nav-links">
+          <li className="nav-item dropdown">
+            <a
+              href="/"
+              className="nav-links dropdown-toggle"
+              id="contentDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
               Content
             </a>
+            <div className="dropdown-menu" aria-labelledby="contentDropdown">
+              <a href="/articles" className="dropdown-item">
+                Articles
+              </a>
+              <a href="/videos" className="dropdown-item">
+                Videos
+              </a>
+              <a href="/audio" className="dropdown-item">
+                Audio
+              </a>
+            </div>
           </li>
           <li className="nav-item">
             <a href="/playground" className="nav-links">
