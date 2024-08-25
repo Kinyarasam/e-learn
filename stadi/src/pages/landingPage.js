@@ -1,6 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import "../landingPage.css";
 
 const LandingPage = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="landing-page">
       <header className="header">
@@ -23,7 +26,9 @@ const LandingPage = () => {
             <h1>Collaborative Learning Reimagined</h1>
             <p>Create, share, and learn together with our innovative multimedia educational platform.</p>
             <div className="cta-buttons">
-              <button className="button primary">Get Started</button>
+              <button className="button primary"
+                onClick={() => navigate("/login")}
+              >Get Started</button>
               <button className="button secondary">Learn More</button>
             </div>
           </div>
@@ -33,14 +38,20 @@ const LandingPage = () => {
             <h2>Key Features</h2>
             <div className="feature-grid">
               {[
-                { icon: '🎥', title: 'Video Lessons', description: 'Create and share engaging video content with your peers.' },
-                { icon: '🎙️', title: 'Audio Lessons', description: 'Record and distribute educational podcasts on various topics.' },
-                { icon: '👥', title: 'Article Lessons', description: 'Work together on assignments and research projects.' }
+                { icon: '🎥', url: '/lessons', title: 'Video Lessons', description: 'Create and share engaging video content with your peers.' },
+                { icon: '🎙️', url: '/lessons', title: 'Audio Lessons', description: 'Record and distribute educational podcasts on various topics.' },
+                { icon: '👥', url: '/lessons', title: 'Article Lessons', description: 'Work together on assignments and research projects.' }
               ].map((feature, index) => (
-                <div key={index} className="feature-card">
+                <div
+                  key={index}
+                  className="feature-card"
+                  style={{ cursor: 'pointer' }}
+                  onClick={() => navigate(feature.url)}
+                >
                   <div className="feature-icon">{feature.icon}</div>
                   <h3>{feature.title}</h3>
                   <p>{feature.description}</p>
+                 
                 </div>
               ))}
             </div>

@@ -63,7 +63,7 @@ const FeaturesPage = () => {
         </div>
 
         <div className='container'>
-          <section className="features-grid">
+          <section className="features-grid" style={{ cursor: 'pointer' }}>
               {features.map((feature, index) => (
                 <article key={index} className="feature-card">
                   <div className="feature-icon" aria-hidden="true">{feature.icon}</div>
@@ -81,13 +81,13 @@ const FeaturesPage = () => {
         </section>
       </main>
 
-      <footer className="footer">
-        <div className="footer-content">
-          <div className="footer-section">
+      <footer className="footers">
+        <div className="footers-content">
+          <div className="footers-section">
             <h3>Stadi</h3>
             <p>Empowering collaborative learning through innovative technology.</p>
           </div>
-          <div className="footer-section">
+          <div className="footers-section">
             <h3>Quick Links</h3>
             <ul>
               <li><a href="/about">About Us</a></li>
@@ -96,13 +96,13 @@ const FeaturesPage = () => {
               <li><a href="/support">Support</a></li>
             </ul>
           </div>
-          <div className="footer-section">
+          <div className="footers-section">
             <h3>Contact Us</h3>
             <p>Email: info@Stadi.com</p>
             <p>Phone: (123) 456-7890</p>
           </div>
         </div>
-        <div className="footer-bottom">
+        <div className="footers-bottom">
           <p>&copy; 2023 Stadi. All rights reserved.</p>
         </div>
       </footer>
