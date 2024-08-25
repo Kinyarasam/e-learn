@@ -7,7 +7,6 @@ import LandingPage from "./pages/landingPage";
 import AudioLessonsPage from "./pages/lesson";
 import FeaturesPage from "./pages/featuresPage";
 import NotFound from "./components/NotFound";
-import TextToSpeech from "./components/TextToSpeech";
 
 const App = () => {
   return (
@@ -18,7 +17,6 @@ const App = () => {
         <Route path="/lessons" element={<AudioLessonsPage />} />
         <Route path="/features" element={<FeaturesPage />} />
         <Route path="/" element={<LandingPage />} />
-        <Route path="au" element={<TextToSpeech />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
