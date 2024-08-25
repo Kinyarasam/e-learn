@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     'drf_yasg',
 
     "articles.apps.ArticlesConfig",
-    "auth_app.apps.AuthAppConfig"
+    "auth_app.apps.AuthAppConfig",
+    "videos.apps.VideosConfig"
 ]
 
 MIDDLEWARE = [
