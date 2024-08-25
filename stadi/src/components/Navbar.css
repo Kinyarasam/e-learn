@@ -55,7 +55,6 @@
 	border-radius: 4px;
 }
 
-/* Search Bar Styles */
 .navbar-search {
 	margin-left: auto;
 	margin-right: 20px;
@@ -96,7 +95,38 @@
 .register-btn:hover {
 	background-color: #0056b3;
 }
+.dropdown-toggle::after {
+	content: '\25BC';
+	/* Down arrow */
+	margin-left: 5px;
+	font-size: 12px;
+}
 
+.dropdown-menu {
+	display: none;
+	position: absolute;
+	background-color: white;
+	border: 1px solid #ccc;
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+	z-index: 1;
+	min-width: 160px;
+}
+
+.dropdown-item {
+	padding: 10px 20px;
+	color: #333;
+	text-decoration: none;
+	display: block;
+}
+
+.dropdown-item:hover {
+	background-color: #f1f1f1;
+	color: #007bff;
+}
+
+.nav-item:hover .dropdown-menu {
+	display: block;
+}
 @media screen and (max-width: 960px) {
 	.navbar-container {
 		flex-wrap: wrap;
