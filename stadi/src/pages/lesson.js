@@ -24,15 +24,21 @@ const audioLessons = [
 ];
 
 const AudioLessonsPage = () => {
-  const [currentAudio, setCurrentAudio] = useState(null);
+  // const [currentAudio, setCurrentAudio] = useState(null);
 
   const playAudio = (audioSrc) => {
-    if (currentAudio) {
-      currentAudio.pause();
+    if ('speechSynthesis' in window) {
+      const utterance = new SpeechSynthesisUtterance(audioSrc);
+      window.speechSynthesis.speak(utterance);
+    } else {
+      alert("Your browser doesn't support text-to-speech. 😢 Use Chrome for the best experience");
     }
-    const audio = new Audio(audioSrc);
-    audio.play();
-    setCurrentAudio(audio);
+    // if (currentAudio) {
+    //   currentAudio.pause();
+    // }
+    // const audio = new Audio(audioSrc);
+    // audio.play();
+    // setCurrentAudio(audio);
   };
 
   return (
@@ -51,7 +57,7 @@ const AudioLessonsPage = () => {
                 <p>{lesson.content}</p>
                 <button 
                   className="play-button" 
-                  onClick={() => playAudio(lesson.audioSrc)}
+                  onClick={() => playAudio(lesson.content)}
                   aria-label={`Play audio for ${lesson.title}`}
                 >
                   <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">

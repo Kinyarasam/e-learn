@@ -1,5 +1,5 @@
 import App from "../App";
-import AudioLessonsPage from "../lesson";
+import AudioLessonsPage from "../pages/lesson";
 
 const routes = [
   {
