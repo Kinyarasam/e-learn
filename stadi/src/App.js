@@ -5,6 +5,8 @@ import Register from "./components/Register";
 // import Navbar from "./components/Navbar";
 import LandingPage from "./pages/landingPage";
 import AudioLessonsPage from "./pages/lesson";
+import Video from "./pages/Video";
+import Articles from "./pages/Articles";
 
 const App = () => {
   return (
@@ -13,6 +15,8 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/lessons" element={<AudioLessonsPage />} />
+        <Route path="/videos" element={<Video />} />
+        <Route path="/articles" element={<Articles />} />
         <Route path="/" element={<LandingPage />} />
       </Routes>
     </Router>
