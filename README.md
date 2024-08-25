@@ -1,8 +1,6 @@
 # Stadi Application
 An educational web platform that allows collaborative learning through content creation and distribution leveraging multimedia formats.
 
-Here is the complete content for your `README.md` file. You can copy and save it directly in your project.
-
 
 ## Stadi APIs
 
