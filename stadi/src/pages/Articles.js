@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Articles.css";
+import Quiz from "../Quiz"; // Import the Quiz component
 
 const Article = () => {
   const [articles, setArticles] = useState([
@@ -25,6 +26,8 @@ const Article = () => {
   const [newArticleTitle, setNewArticleTitle] = useState("");
   const [newArticleDescription, setNewArticleDescription] = useState("");
   const [newArticleUrl, setNewArticleUrl] = useState("");
+  const [showQuiz, setShowQuiz] = useState(false); // State for showing the quiz
+  const [quizScore, setQuizScore] = useState(0);
 
   const handleAddArticle = (e) => {
     e.preventDefault();
@@ -47,7 +50,13 @@ const Article = () => {
     }
   };
 
-	return (
+  const handleQuizComplete = (score) => {
+    setQuizScore(score);
+    setShowQuiz(false);
+    alert(`Quiz completed! Your score is ${score}`);
+  };
+
+  return (
     <>
       <div className="article-container">
         <h2 className="article-title">Stadi Articles</h2>
@@ -96,10 +105,19 @@ const Article = () => {
               >
                 Read More
               </a>
+              <button 
+                onClick={() => setShowQuiz(true)} 
+                className="quiz-button"
+              >
+                Take Quiz
+              </button>
             </div>
           ))}
         </div>
+
+        {showQuiz && <Quiz onComplete={handleQuizComplete} />}
       </div>
+      
       <footer className="footer">
         <p>© 2024 Stadi. All rights reserved.</p>
         <nav>
