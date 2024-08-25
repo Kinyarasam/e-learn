@@ -21,11 +21,8 @@ from stadi_Api.docs import schema_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/auth/', include('dj_rest_auth.urls')),
-    path('api/auth/registration/', include('dj_rest_auth.registration.urls')),
-    path('api/', include('articles.urls')),
-    # path('api/auth_app/', include('auth_app.urls')),
-    path('api/', include('videos.urls')),
+    path('api/auth/', include('users.urls')),
+    path('api/videos/', include('videos.urls')),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
 ]

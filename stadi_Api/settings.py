@@ -47,8 +47,8 @@ INSTALLED_APPS = [
     'dj_rest_auth.registration',
     'drf_yasg',
 
-    "articles.apps.ArticlesConfig",
-    "videos.apps.VideosConfig"
+    "videos.apps.VideosConfig",
+    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
@@ -139,37 +139,26 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SITE_ID = 1
 
+AUTH_USER_MODEL = 'users.CustomUser'
+
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
     ),
 }
 
-ACCOUNT_EMAIL_VERIFICATION = 'none'  # Change this to 'mandatory' for email verification
+from datetime import timedelta
 
-AUTH_USER_MODEL = 'auth_app.CustomUser'
-
-AUTHENTICATION_BACKENDS = (
-    'auth_app.backends.EmailBackend',
-    'django.contrib.auth.backends.ModelBackend',
-)
-
-REST_AUTH_SERIALIZERS = {
-    'LOGIN_SERIALIZER': 'auth_app.serializers.CustomLoginSerializer',
-    'REGISTER_SERIALIZER': 'auth_app.serializers.CustomRegisterSerializer',
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+    'ROTATE_REFRESH_TOKENS': True,
+    'BLACKLIST_AFTER_ROTATION': True,
+    'AUTH_HEADER_TYPES': ('Bearer',),
 }
-ACCOUNT_FORMS = {
-    'signup': 'auth_app.forms.CustomSignupForm',
-    'login': 'auth_app.forms.CustomLoginForm',
-}
-
-ACCOUNT_AUTHENTICATION_METHOD = 'email'
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_USERNAME_REQUIRED = False
-ACCOUNT_USER_MODEL_USERNAME_FIELD = None
 
 
 
